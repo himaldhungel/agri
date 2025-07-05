@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepal AgriTech Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #2E7D32;
+            --accent-gold: #F9A825;
+            --off-white: #FAFAFA;
+            --dark-text: #1B1B1B;
+            --light-text: #666;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --border-radius: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg,
+                    rgba(46, 125, 50, 0.8) 0%,
+                    rgba(46, 125, 50, 0.6) 100%),
+                url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyMCIgaGVpZ2h0PSIxMDgwIiB2aWV3Qm94PSIwIDAgMTkyMCAxMDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzRDQUY1MDtzdG9wLW9wYWNpdHk6MSIgLz4KPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMkU3RDMyO3N0b3Atb3BhY2l0eToxIiAvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+CjxyZWN0IHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjEwODAiIGZpbGw9InVybCgjZ3JhZCkiLz4KPHBhdGggZD0iTTAgNTQwTDQ4MCA0MDBMOTYwIDUwMEwxNDQwIDM2MEwxOTIwIDQ4MFY4MDBMMTQ0MCA5MDBMOTY0IDc4MEw0ODAgOTIwTDAgODAwVjU0MFoiIGZpbGw9IiMzOEEzNTUiIGZpbGwtb3BhY2l0eT0iMC4zIi8+CjxwYXRoIGQ9Ik0wIDcwMEw0ODAgNTYwTDk2MCA2NjBMMTQ0MCA1MjBMMTkyMCA2NDBWOTYwTDE0NDAgMTA2MEw5NjAgOTQwTDQ4MCA4MDBMMCAxMDgwVjcwMFoiIGZpbGw9IiMzOEEzNTUiIGZpbGwtb3BhY2l0eT0iMC4yIi8+Cjwvc3ZnPgo=');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            animation: heroFadeIn 1.5s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent-gold), #FFB74D);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(249, 168, 37, 0.3);
+        }
+
+        /* Container and Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: var(--off-white);
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            margin-bottom: 2rem;
+        }
+
+        .developer-info {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            display: inline-block;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .feature-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .feature-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .stat {
+            text-align: center;
+            background: var(--off-white);
+            padding: 0.5rem;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 80px;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--light-text);
+        }
+
+        /* Interactive Demo */
+        .demo {
+            padding: 5rem 0;
+            background: var(--off-white);
+        }
+
+        .demo h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .demo-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--light-text);
+            margin-bottom: 3rem;
+        }
+
+        .demo-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .demo-tab {
+            padding: 1rem 2rem;
+            background: white;
+            border: 2px solid var(--primary-green);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: var(--primary-green);
+            position: relative;
+        }
+
+        .demo-tab.active {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        .demo-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .demo-content {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            min-height: 500px;
+        }
+
+        .demo-panel {
+            display: none;
+        }
+
+        .demo-panel.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        /* Field Visualization */
+        .field-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .field-visualization {
+            background: #90EE90;
+            border-radius: var(--border-radius);
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid var(--primary-green);
+        }
+
+        .field-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(15, 1fr);
+            grid-template-rows: repeat(10, 1fr);
+            gap: 1px;
+        }
+
+        .field-cell {
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .plant {
+            width: 12px;
+            height: 12px;
+            background: #2E7D32;
+            border-radius: 50%;
+            position: absolute;
+            animation: plantGrow 2s ease-in-out infinite alternate;
+        }
+
+        .weed {
+            width: 10px;
+            height: 10px;
+            background: #D32F2F;
+            border-radius: 50%;
+            position: absolute;
+            animation: weedMove 3s ease-in-out infinite;
+        }
+
+        .spray-action {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #FF9800;
+            border-radius: 50%;
+            background: rgba(255, 152, 0, 0.3);
+            animation: sprayPulse 1s ease-out;
+        }
+
+        @keyframes plantGrow {
+            0% {
+                transform: scale(0.8);
+            }
+
+            100% {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes weedMove {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-3px);
+            }
+        }
+
+        @keyframes sprayPulse {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        .demo-controls {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .control-button {
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .control-button:hover {
+            background: #1B5E20;
+            transform: translateY(-2px);
+        }
+
+        .control-button.active {
+            background: var(--accent-gold);
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            animation: statusBlink 2s infinite;
+        }
+
+        .status-indicator.active {
+            background: #4CAF50;
+        }
+
+        .status-indicator.inactive {
+            background: #FFC107;
+        }
+
+        @keyframes statusBlink {
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0.3;
+            }
+        }
+
+        .gauge-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gauge {
+            text-align: center;
+            background: var(--off-white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            flex: 1;
+            min-width: 120px;
+            transition: all 0.3s ease;
+        }
+
+        .gauge:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .gauge-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            transition: all 0.3s ease;
+        }
+
+        .gauge-change {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .gauge-change.positive {
+            color: #4CAF50;
+        }
+
+        .gauge-change.negative {
+            color: #F44336;
+        }
+
+        /* Progress Bars */
+        .progress-container {
+            margin: 1rem 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #E0E0E0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-gold));
+            transition: width 0.5s ease;
+            border-radius: 4px;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .timeline-item {
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+            padding: 1rem;
+            background: var(--off-white);
+            border-radius: var(--border-radius);
+            position: relative;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .timeline-item.active {
+            background: var(--primary-green);
+            color: white;
+            border-color: var(--accent-gold);
+            transform: scale(1.05);
+        }
+
+        .timeline-item.completed {
+            background: #E8F5E8;
+            border-color: #4CAF50;
+        }
+
+        /* Chart Containers */
+        .chart-container {
+            background: var(--off-white);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            height: 200px;
+            position: relative;
+        }
+
+        .chart-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-green);
+        }
+
+        /* Irrigation Visualization */
+        .irrigation-map {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 0.5rem;
+            margin: 2rem 0;
+        }
+
+        .irrigation-zone {
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .irrigation-zone.dry {
+            background: #FF5722;
+        }
+
+        .irrigation-zone.normal {
+            background: #4CAF50;
+        }
+
+        .irrigation-zone.wet {
+            background: #2196F3;
+        }
+
+        .irrigation-zone:hover {
+            transform: scale(1.1);
+        }
+
+        /* Weather Widget */
+        .weather {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .weather h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 3rem;
+        }
+
+        .weather-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .weather-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .weather-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .weather-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .weather-recommendation {
+            background: var(--primary-green);
+            color: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-green);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-button {
+            background: var(--accent-gold);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .footer-button:hover {
+            background: #FFB74D;
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes heroFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .demo-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .demo-tab {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .gauge-container {
+                flex-direction: column;
+            }
+
+            .timeline {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 100vh;
+                padding: 2rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about h2,
+            .features h2,
+            .demo h2,
+            .weather h2 {
+                font-size: 2rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .weather-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Nepal AgriTech Solutions</h1>
+            <p>Revolutionizing Nepalese Agriculture with Smart Technology</p>
+            <a href="#demo" class="cta-button" onclick="scrollToDemo()">Get Demo</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Smart Agriculture for Nepal</h2>
+            <p>Using technology to solve irrigation, weed control, and growth-cycle challenges.</p>
+            <div class="developer-info">
+                <strong>Developed by: Himal Dhungel | Chandrapur, Rautahat, Nepal</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="grid grid-3">
+                <div class="feature-card">
+                    <div class="feature-icon">🌱💧</div>
+                    <h3>Smart See & Spray</h3>
+                    <p>Computer vision-driven weed detection & targeted herbicide spraying, cutting chemical use by up
+                        to 90%.</p>
+                    <div class="feature-stats">
+                        <div class="stat">
+                            <div class="stat-number">90%</div>
+                            <div class="stat-label">Chemical Reduction</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Detection Accuracy</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">70%</div>
+                            <div class="stat-label">Cost Savings</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊🌿</div>
+                    <h3>AI Growth Prediction</h3>
+                    <p>AI forecasts optimal planting windows to enable 3 cycles/year and avoid fog damage.</p>
+                    <div class="feature-stats">
+                        <div class="stat">
+                            <div class="stat-number">3×</div>
+                            <div class="stat-label">Crop Cycles</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">85%</div>
+                            <div class="stat-label">Fog Reduction</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">40%</div>
+                            <div class="stat-label">Yield Boost</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💧📡</div>
+                    <h3>Smart Irrigation</h3>
+                    <p>IoT sensors + AI to deliver precise watering schedules, conserving water & energy.</p>
+                    <div class="feature-stats">
+                        <div class="stat">
+                            <div class="stat-number">60%</div>
+                            <div class="stat-label">Water Savings</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">35%</div>
+                            <div class="stat-label">Energy Savings</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">25%</div>
+                            <div class="stat-label">Yield Improvement</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section class="demo" id="demo">
+        <div class="container">
+            <h2>Interactive Demo</h2>
+            <p class="demo-subtitle">Experience our smart agriculture solutions in real-time</p>
+            <div class="demo-tabs">
+                <div class="demo-tab active" onclick="showDemo('spray')" role="button" aria-label="See & Spray Demo">
+                    <span class="status-indicator active"></span>See & Spray
+                </div>
+                <div class="demo-tab" onclick="showDemo('growth')" role="button" aria-label="Growth Prediction Demo">
+                    <span class="status-indicator inactive"></span>Growth Prediction
+                </div>
+                <div class="demo-tab" onclick="showDemo('irrigation')" role="button" aria-label="Smart Irrigation Demo">
+                    <span class="status-indicator inactive"></span>Smart Irrigation
+                </div>
+            </div>
+
+            <div class="demo-content">
+                <div class="demo-panel active" id="spray-demo">
+                    <h3>🌱 Real-time Herbicide Reduction</h3>
+                    <div class="demo-controls">
+                        <button class="control-button active" onclick="toggleFieldScan()">
+                            <span id="scan-status">Running Detection...</span>
+                        </button>
+                        <button class="control-button" onclick="resetDemo()">Reset Field</button>
+                    </div>
+
+                    <div class="field-container">
+                        <div class="field-visualization" id="field-map">
+                            <div class="field-grid" id="field-grid"></div>
+                        </div>
+                        <div>
+                            <div class="gauge-container">
+                                <div class="gauge">
+                                    <div class="gauge-value" id="plants-detected">728</div>
+                                    <div>Plants Detected</div>
+                                    <div class="gauge-change positive" id="plants-change">+12 this minute</div>
+                                </div>
+                                <div class="gauge">
+                                    <div class="gauge-value" id="weeds-detected">355</div>
+                                    <div>Weeds Detected</div>
+                                    <div class="gauge-change negative" id="weeds-change">+8 new</div>
+                                </div>
+                            </div>
+                            <div class="gauge-container">
+                                <div class="gauge">
+                                    <div class="gauge-value" id="spray-actions">12</div>
+                                    <div>Spray Actions</div>
+                                    <div class="gauge-change positive">Active</div>
+                                </div>
+                                <div class="gauge">
+                                    <div class="gauge-value" id="herbicide-saved">70%</div>
+                                    <div>Herbicide Saved</div>
+                                    <div class="gauge-change positive">+2% today</div>
+                                </div>
+                            </div>
+                            <div class="progress-container">
+                                <div>Detection Accuracy: <span id="accuracy-percent">98.2%</span></div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="accuracy-bar" style="width: 98.2%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-panel" id="growth-demo">
+                    <h3>📊 AI Growth Prediction Timeline</h3>
+                    <div class="demo-controls">
+                        <button class="control-button" onclick="simulateGrowth()">Simulate Next Phase</button>
+                        <button class="control-button" onclick="showWeatherImpact()">Weather Impact</button>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-title">Growth Progress - Current Cycle</div>
+                        <div class="progress-container">
+                            <div>Cycle Progress: <span id="cycle-progress">35%</span></div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="growth-bar" style="width: 35%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline">
+                        <div class="timeline-item completed">
+                            <div><strong>Planting</strong></div>
+                            <div>June 1, 2025</div>
+                            <div style="color: #4CAF50; font-size: 0.8rem;">✓ Complete</div>
+                        </div>
+                        <div class="timeline-item active">
+                            <div><strong>Early Growth</strong></div>
+                            <div>June 15, 2025</div>
+                            <div style="color: #FF9800; font-size: 0.8rem;">⏱ In Progress</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div><strong>Mid Growth</strong></div>
+                            <div>July 1, 2025</div>
+                            <div style="color: #666; font-size: 0.8rem;">⏳ Pending</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div><strong>Late Growth</strong></div>
+                            <div>July 20, 2025</div>
+                            <div style="color: #666; font-size: 0.8rem;">⏳ Pending</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div><strong>Harvest</strong></div>
+                            <div>August 10, 2025</div>
+                            <div style="color: #666; font-size: 0.8rem;">⏳ Pending</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div><strong>Next Cycle</strong></div>
+                            <div>August 25, 2025</div>
+                            <div style="color: #666; font-size: 0.8rem;">📅 Planned</div>
+                        </div>
+                    </div>
+
+                    <div class="gauge-container">
+                        <div class="gauge">
+                            <div class="gauge-value" id="yield-prediction">+40%</div>
+                            <div>Predicted Yield Increase</div>
+                        </div>
+                        <div class="gauge">
+                            <div class="gauge-value" id="fog-risk">15%</div>
+                            <div>Fog Damage Risk</div>
+                        </div>
+                        <div class="gauge">
+                            <div class="gauge-value" id="optimal-days">12</div>
+                            <div>Days to Optimal Harvest</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-panel" id="irrigation-demo">
+                    <h3>💧 Smart Irrigation Control</h3>
+                    <div class="demo-controls">
+                        <button class="control-button" onclick="toggleIrrigation()">
+                            <span id="irrigation-status">Auto Mode Active</span>
+                        </button>
+                        <button class="control-button" onclick="manualWater()">Manual Water</button>
+                    </div>
+
+                    <div class="irrigation-map" id="irrigation-zones">
+                        <!-- Zones will be generated by JavaScript -->
+                    </div>
+
+                    <div class="gauge-container">
+                        <div class="gauge">
+                            <div class="gauge-value" id="soil-moisture">73%</div>
+                            <div>Average Soil Moisture</div>
+                            <div class="gauge-change" id="moisture-trend">↗ Rising</div>
+                        </div>
+                        <div class="gauge">
+                            <div class="gauge-value" id="next-irrigation">6 hours</div>
+                            <div>Next Scheduled Irrigation</div>
+                            <div class="gauge-change">Zone 3 & 7</div>
+                        </div>
+                        <div class="gauge">
+                            <div class="gauge-value" id="water-consumption">2,450L</div>
+                            <div>Weekly Water Usage</div>
+                            <div class="gauge-change positive">-15% vs last week</div>
+                        </div>
+                        <div class="gauge">
+                            <div class="gauge-value" id="efficiency-score">92%</div>
+                            <div>System Efficiency</div>
+                            <div class="gauge-change positive">Excellent</div>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-title">Water Usage Optimization</div>
+                        <div class="progress-container">
+                            <div>Weekly Savings: <span id="water-savings">35%</span></div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weather Widget -->
+    <section class="weather" id="weather">
+        <div class="container">
+            <h2>7-Day Weather Forecast</h2>
+            <div class="weather-grid">
+                <div class="weather-card">
+                    <div class="weather-icon">☀️</div>
+                    <div><strong>Today</strong></div>
+                    <div>28°C</div>
+                </div>
+                <div class="weather-card">
+                    <div class="weather-icon">🌤️</div>
+                    <div><strong>Tomorrow</strong></div>
+                    <div>26°C</div>
+                </div>
+                <div class="weather-card">
+                    <div class="weather-icon">🌧️</div>
+                    <div><strong>Sat</strong></div>
+                    <div>22°C</div>
+                </div>
+                <div class="weather-card">
+                    <div class="weather-icon">⛅</div>
+                    <div><strong>Sun</strong></div>
+                    <div>25°C</div>
+                </div>
+                <div class="weather-card">
+                    <div class="weather-icon">☀️</div>
+                    <div><strong>Mon</strong></div>
+                    <div>29°C</div>
+                </div>
+                <div class="weather-card">
+                    <div class="weather-icon">🌤️</div>
+                    <div><strong>Tue</strong></div>
+                    <div>27°C</div>
+                </div>
+                <div class="weather-card">
+                    <div class="weather-icon">☀️</div>
+                    <div><strong>Wed</strong></div>
+                    <div>30°C</div>
+                </div>
+            </div>
+            <div class="weather-recommendation">
+                <strong>AI Recommendation:</strong> Based on weather & growth models, optimal planting date is June 1
+                for a 3-cycle rotation.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <h3>Ready to transform Nepalese agriculture?</h3>
+            <p>Contact: Himal Dhungel | Chandrapur, Rautahat, Nepal</p>
+            <a href="mailto:himal@nepalagriteach.com" class="footer-button">Get in Touch</a>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced demo data simulation
+        const demoData = {
+            spray: {
+                plants: 728,
+                weeds: 355,
+                actions: 12,
+                herbicideSaved: 70,
+                accuracy: 98.2,
+                scanning: true
+            },
+            irrigation: {
+                moisture: 73,
+                nextIrrigation: 6,
+                waterUsage: 2450,
+                efficiency: 92,
+                autoMode: true
+            },
+            growth: {
+                cycleProgress: 35,
+                yieldIncrease: 40,
+                fogRisk: 15,
+                optimalDays: 12,
+                currentPhase: 1
+            }
+        };
+
+        let fieldElements = [];
+        let animationIntervals = [];
+
+        // Smooth scrolling function
+        function scrollToDemo() {
+            document.getElementById('demo').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Demo tab switching with status indicators
+        function showDemo(demoType) {
+            // Remove active class from all tabs and panels
+            document.querySelectorAll('.demo-tab').forEach(tab => {
+                tab.classList.remove('active');
+                const indicator = tab.querySelector('.status-indicator');
+                indicator.classList.remove('active');
+                indicator.classList.add('inactive');
+            });
+            document.querySelectorAll('.demo-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+
+            // Add active class to clicked tab and corresponding panel
+            event.target.classList.add('active');
+            const activeIndicator = event.target.querySelector('.status-indicator');
+            activeIndicator.classList.remove('inactive');
+            activeIndicator.classList.add('active');
+
+            document.getElementById(demoType + '-demo').classList.add('active');
+
+            // Initialize specific demo features
+            if (demoType === 'spray') {
+                initializeFieldVisualization();
+                updateSprayData();
+            } else if (demoType === 'irrigation') {
+                initializeIrrigationZones();
+                updateIrrigationData();
+            } else if (demoType === 'growth') {
+                updateGrowthData();
+            }
+        }
+
+        // Initialize field visualization
+        function initializeFieldVisualization() {
+            const fieldGrid = document.getElementById('field-grid');
+            const fieldMap = document.getElementById('field-map');
+
+            // Clear existing elements
+            fieldElements.forEach(el => el.remove());
+            fieldElements = [];
+
+            // Add plants (green dots)
+            for (let i = 0; i < 45; i++) {
+                const plant = document.createElement('div');
+                plant.className = 'plant';
+                plant.style.left = Math.random() * 90 + '%';
+                plant.style.top = Math.random() * 90 + '%';
+                fieldMap.appendChild(plant);
+                fieldElements.push(plant);
+            }
+
+            // Add weeds (red dots)
+            for (let i = 0; i < 18; i++) {
+                const weed = document.createElement('div');
+                weed.className = 'weed';
+                weed.style.left = Math.random() * 90 + '%';
+                weed.style.top = Math.random() * 90 + '%';
+                fieldMap.appendChild(weed);
+                fieldElements.push(weed);
+            }
+
+            // Start spray simulation
+            if (demoData.spray.scanning) {
+                startSpraySimulation();
+            }
+        }
+
+        // Start spray simulation
+        function startSpraySimulation() {
+            const sprayInterval = setInterval(() => {
+                if (!demoData.spray.scanning) {
+                    clearInterval(sprayInterval);
+                    return;
+                }
+
+                const weeds = document.querySelectorAll('.weed');
+                if (weeds.length > 0) {
+                    const randomWeed = weeds[Math.floor(Math.random() * weeds.length)];
+                    createSprayAction(randomWeed);
+
+                    // Update stats
+                    demoData.spray.actions++;
+                    updateSprayData();
+                }
+            }, 2000);
+
+            animationIntervals.push(sprayInterval);
+        }
+
+        // Create spray action animation
+        function createSprayAction(target) {
+            const rect = target.getBoundingClientRect();
+            const fieldRect = document.getElementById('field-map').getBoundingClientRect();
+
+            const spray = document.createElement('div');
+            spray.className = 'spray-action';
+            spray.style.left = (rect.left - fieldRect.left) + 'px';
+            spray.style.top = (rect.top - fieldRect.top) + 'px';
+
+            document.getElementById('field-map').appendChild(spray);
+
+            setTimeout(() => {
+                spray.remove();
+                target.style.opacity = '0.3';
+                setTimeout(() => target.remove(), 500);
+            }, 1000);
+        }
+
+        // Initialize irrigation zones
+        function initializeIrrigationZones() {
+            const container = document.getElementById('irrigation-zones');
+            container.innerHTML = '';
+
+            const zones = [
+                {moisture: 'dry', level: 45},
+                {moisture: 'normal', level: 72},
+                {moisture: 'wet', level: 85},
+                {moisture: 'normal', level: 68},
+                {moisture: 'dry', level: 38},
+                {moisture: 'normal', level: 75},
+                {moisture: 'dry', level: 42},
+                {moisture: 'wet', level: 88},
+                {moisture: 'normal', level: 71},
+                {moisture: 'normal', level: 69},
+                {moisture: 'dry', level: 35},
+                {moisture: 'wet', level: 90},
+                {moisture: 'normal', level: 73},
+                {moisture: 'dry', level: 41},
+                {moisture: 'normal', level: 76},
+                {moisture: 'wet', level: 87}
+            ];
+
+            zones.forEach((zone, index) => {
+                const zoneEl = document.createElement('div');
+                zoneEl.className = `irrigation-zone ${zone.moisture}`;
+                zoneEl.textContent = `${zone.level}%`;
+                zoneEl.title = `Zone ${index + 1}: ${zone.level}% moisture`;
+                container.appendChild(zoneEl);
+            });
+        }
+
+        // Control functions
+        function toggleFieldScan() {
+            demoData.spray.scanning = !demoData.spray.scanning;
+            const button = document.getElementById('scan-status');
+
+            if (demoData.spray.scanning) {
+                button.textContent = 'Running Detection...';
+                button.parentElement.classList.add('active');
+                startSpraySimulation();
+            } else {
+                button.textContent = 'Start Detection';
+                button.parentElement.classList.remove('active');
+            }
+        }
+
+        function resetDemo() {
+            demoData.spray.plants = 728;
+            demoData.spray.weeds = 355;
+            demoData.spray.actions = 12;
+            initializeFieldVisualization();
+            updateSprayData();
+        }
+
+        function toggleIrrigation() {
+            demoData.irrigation.autoMode = !demoData.irrigation.autoMode;
+            const button = document.getElementById('irrigation-status');
+
+            if (demoData.irrigation.autoMode) {
+                button.textContent = 'Auto Mode Active';
+                button.parentElement.classList.add('active');
+            } else {
+                button.textContent = 'Manual Mode';
+                button.parentElement.classList.remove('active');
+            }
+        }
+
+        function manualWater() {
+            demoData.irrigation.waterUsage += 150;
+            demoData.irrigation.moisture += 5;
+            updateIrrigationData();
+
+            // Visual feedback
+            const zones = document.querySelectorAll('.irrigation-zone.dry');
+            zones.forEach(zone => {
+                zone.classList.remove('dry');
+                zone.classList.add('normal');
+                zone.textContent = parseInt(zone.textContent) + 20 + '%';
+            });
+        }
+
+        function simulateGrowth() {
+            const currentPhase = demoData.growth.currentPhase;
+            if (currentPhase < 5) {
+                demoData.growth.currentPhase++;
+                demoData.growth.cycleProgress += 15;
+                updateGrowthTimeline();
+                updateGrowthData();
+            }
+        }
+
+        function showWeatherImpact() {
+            demoData.growth.fogRisk = Math.max(5, demoData.growth.fogRisk - 10);
+            demoData.growth.yieldIncrease += 5;
+            updateGrowthData();
+        }
+
+        // Update functions
+        function updateSprayData() {
+            const data = demoData.spray;
+            document.getElementById('plants-detected').textContent = data.plants;
+            document.getElementById('weeds-detected').textContent = data.weeds;
+            document.getElementById('spray-actions').textContent = data.actions;
+            document.getElementById('herbicide-saved').textContent = data.herbicideSaved + '%';
+            document.getElementById('accuracy-percent').textContent = data.accuracy + '%';
+            document.getElementById('accuracy-bar').style.width = data.accuracy + '%';
+        }
+
+        function updateIrrigationData() {
+            const data = demoData.irrigation;
+            document.getElementById('soil-moisture').textContent = data.moisture + '%';
+            document.getElementById('next-irrigation').textContent = Math.floor(data.nextIrrigation) + ' hours';
+            document.getElementById('water-consumption').textContent = data.waterUsage.toLocaleString() + 'L';
+            document.getElementById('efficiency-score').textContent = data.efficiency + '%';
+        }
+
+        function updateGrowthData() {
+            const data = demoData.growth;
+            document.getElementById('cycle-progress').textContent = data.cycleProgress + '%';
+            document.getElementById('growth-bar').style.width = data.cycleProgress + '%';
+            document.getElementById('yield-prediction').textContent = '+' + data.yieldIncrease + '%';
+            document.getElementById('fog-risk').textContent = data.fogRisk + '%';
+            document.getElementById('optimal-days').textContent = data.optimalDays;
+        }
+
+        function updateGrowthTimeline() {
+            const items = document.querySelectorAll('#growth-demo .timeline-item');
+            const currentPhase = demoData.growth.currentPhase;
+
+            items.forEach((item, index) => {
+                item.classList.remove('active', 'completed');
+                if (index < currentPhase) {
+                    item.classList.add('completed');
+                } else if (index === currentPhase) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        // Animate feature cards on scroll
+        function animateOnScroll() {
+            const cards = document.querySelectorAll('.feature-card');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const cardVisible = 150;
+
+                if (cardTop < window.innerHeight - cardVisible) {
+                    card.classList.add('visible');
+                }
+            });
+        }
+
+        // Initialize everything
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', () => {
+            animateOnScroll();
+            initializeFieldVisualization();
+            initializeIrrigationZones();
+            updateSprayData();
+            updateIrrigationData();
+            updateGrowthData();
+        });
+
+        // Enhanced real-time simulation
+        setInterval(() => {
+            // Update spray data with more realistic changes
+            if (demoData.spray.scanning) {
+                demoData.spray.plants += Math.floor(Math.random() * 5);
+                demoData.spray.weeds = Math.max(0, demoData.spray.weeds + Math.floor(Math.random() * 2) - 1);
+                demoData.spray.herbicideSaved = Math.min(95, demoData.spray.herbicideSaved + Math.random() * 0.3).round();
+                demoData.spray.accuracy = Math.min(99.9, demoData.spray.accuracy + (Math.random() - 0.5) * 0.1);
+            }
+
+            // Update irrigation data
+            demoData.irrigation.moisture = Math.max(35, Math.min(95, demoData.irrigation.moisture + (Math.random() - 0.6) * 2));
+            demoData.irrigation.nextIrrigation = Math.max(0.5, demoData.irrigation.nextIrrigation - 0.05);
+            demoData.irrigation.waterUsage += Math.floor(Math.random() * 3);
+
+            if (demoData.irrigation.nextIrrigation <= 0.5) {
+                demoData.irrigation.nextIrrigation = 6 + Math.random() * 4;
+                demoData.irrigation.moisture += 15;
+            }
+
+            // Update growth data
+            demoData.growth.optimalDays = Math.max(1, demoData.growth.optimalDays - 0.1);
+
+            // Update displays if panels are active
+            if (document.getElementById('spray-demo').classList.contains('active')) {
+                updateSprayData();
+            }
+            if (document.getElementById('irrigation-demo').classList.contains('active')) {
+                updateIrrigationData();
+            }
+            if (document.getElementById('growth-demo').classList.contains('active')) {
+                updateGrowthData();
+            }
+        }, 3000);
+
+        // Add random spray actions and plant growth
+        setInterval(() => {
+            if (demoData.spray.scanning && document.getElementById('spray-demo').classList.contains('active')) {
+                // Occasionally add new plants
+                if (Math.random() < 0.3) {
+                    const fieldMap = document.getElementById('field-map');
+                    const plant = document.createElement('div');
+                    plant.className = 'plant';
+                    plant.style.left = Math.random() * 90 + '%';
+                    plant.style.top = Math.random() * 90 + '%';
+                    fieldMap.appendChild(plant);
+                    fieldElements.push(plant);
+                }
+
+                // Occasionally add new weeds
+                if (Math.random() < 0.2) {
+                    const fieldMap = document.getElementById('field-map');
+                    const weed = document.createElement('div');
+                    weed.className = 'weed';
+                    weed.style.left = Math.random() * 90 + '%';
+                    weed.style.top = Math.random() * 90 + '%';
+                    fieldMap.appendChild(weed);
+                    fieldElements.push(weed);
+                }
+            }
+        }, 8000);
+
+        // TODO: Connect to real APIs
+        // - Weather API integration: Replace static weather data with real forecast
+        // - IoT sensor data: Connect to actual soil moisture and plant detection sensors
+        // - Growth prediction models: Integrate with AI/ML services for real predictions
+        // - User authentication: Add login/signup for personalized dashboards
+        // - Data persistence: Store user preferences and historical data
+    </script>
+</body>
+
+</html>
